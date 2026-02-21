@@ -2,10 +2,80 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<section class="w-full max-w-[960px] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <div class="container">
+        <div class="flex flex-col-reverse gap-8 lg:flex-row lg:items-center">
+            <div class="flex flex-col gap-6 lg:w-1/2 lg:pr-8">
+                <div class="flex flex-col gap-4 text-left">
+                    <div class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                        <span class="material-symbols-outlined text-[16px]">verified</span>
+                        AI-Powered Diagnosis Tool
+                    </div>
+                    <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-[#111418] dark:text-white sm:text-5xl lg:text-6xl">
+                        Your Personal AI Health Assistant
+                    </h1>
+                    <h2 class="text-lg font-normal leading-relaxed text-[#637588] dark:text-[#9dabb9]">
+                        Describe your symptoms and get instant, science-backed laboratory test suggestions to discuss with your doctor.
+                    </h2>
+                </div>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <button class="flex h-12 min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-6 text-base font-bold text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20">
+                        <span>Start Symptom Check</span>
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                    <button class="flex h-12 cursor-pointer items-center justify-center rounded-lg border border-[#e5e7eb] dark:border-border-dark bg-transparent px-6 text-base font-bold text-[#111418] dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/5">
+                        Learn More
+                    </button>
+                </div>
+                <p class="text-xs text-[#637588] dark:text-[#6b7280]">
+                    * No registration required for initial assessment.
+                </p>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="relative w-full overflow-hidden rounded-2xl bg-surface-dark shadow-2xl shadow-primary/10">
+                    <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80");'>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-background-dark/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <p class="text-xs font-medium text-white/80 uppercase tracking-wider">Analysis Complete</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-bold text-white">Potential Vitamin D Deficiency</p>
+                            <span class="material-symbols-outlined text-white">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <h1>hey this is test for the repo</h1>
-    
-</div>
+<section class="w-full border-y border-[#e5e7eb] dark:border-border-dark bg-[#f9fafb] dark:bg-[#151a21]" id="partners">
+    <div class="mx-auto max-w-[960px] px-4 py-8 sm:px-6 lg:px-8">
+        <p class="mb-6 text-center text-sm font-medium text-[#637588] dark:text-[#9dabb9]">TRUSTED BY HEALTHCARE INNOVATORS</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 opacity-60 grayscale transition-all hover:grayscale-0 hover:opacity-100 duration-500">
+            <div class="flex items-center gap-2 text-xl font-bold dark:text-white"><span class="material-symbols-outlined">cardiology</span> MedTech</div>
+            <div class="flex items-center gap-2 text-xl font-bold dark:text-white"><span class="material-symbols-outlined">genetics</span> BioLab</div>
+            <div class="flex items-center gap-2 text-xl font-bold dark:text-white"><span class="material-symbols-outlined">prescriptions</span> PharmaPlus</div>
+            <div class="flex items-center gap-2 text-xl font-bold dark:text-white"><span class="material-symbols-outlined">medical_services</span> HealthAI</div>
+        </div>
+    </div>
+</section>
+
+<section class="w-full max-w-[960px] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-2xl bg-[#1c2127]">
+        <div class="relative z-10 flex flex-col items-start gap-6 p-8 md:p-12">
+            <div class="rounded-full bg-white/10 p-3 backdrop-blur-sm">
+                <span class="material-symbols-outlined text-3xl text-white">warning</span>
+            </div>
+            <div class="max-w-[600px] flex flex-col gap-2">
+                <h2 class="text-2xl font-bold leading-tight text-white">Medical Disclaimer</h2>
+                <p class="text-base font-medium leading-relaxed text-gray-300">
+                    This tool is for informational purposes only and does not provide a medical diagnosis. Always consult with a qualified healthcare professional.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
