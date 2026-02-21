@@ -1,0 +1,24 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace AIHealthTestSystem.Controllers
+{
+    [Authorize(Roles = "Admin")]
+    public class AdminController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult ManageUsers()
+        {
+            return View();
+        }
+
+        public IActionResult AIConfigurations()
+        {
+            return View();
+        }
+    }
+}

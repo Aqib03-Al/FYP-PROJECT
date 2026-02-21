@@ -15,7 +15,14 @@ namespace AIHealthTestSystem.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                    return RedirectToAction("Index", "Admin");
+                else
+                    return RedirectToAction("Index", "Patient");
+            }
+            return View(); // Otherwise show Landing Page
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="w-full max-w-[1200px] px-4 py-8">
+    <div class="flex flex-col gap-2 mb-8">
+        <h1 class="text-3xl font-black tracking-tight text-white">Admin Command Center</h1>
+        <p class="text-[#9dabb9]">Monitor system performance and manage health recommendations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+        <div class="flex flex-col gap-2 rounded-xl border border-border-dark bg-surface-dark p-6">
+            <div class="flex items-center justify-between">
+                <span class="material-symbols-outlined text-primary">group</span>
+                <span class="text-xs font-bold text-green-500">+12%</span>
+            </div>
+            <p class="text-sm font-medium text-[#9dabb9]">Total Patients</p>
+            <h3 class="text-2xl font-bold text-white">1,284</h3>
+        </div>
+
+        <div class="flex flex-col gap-2 rounded-xl border border-border-dark bg-surface-dark p-6">
+            <div class="flex items-center justify-between">
+                <span class="material-symbols-outlined text-primary">clinical_notes</span>
+                <span class="text-xs font-bold text-primary">New</span>
+            </div>
+            <p class="text-sm font-medium text-[#9dabb9]">Assessments Today</p>
+            <h3 class="text-2xl font-bold text-white">42</h3>
+        </div>
+
+        <div class="flex flex-col gap-2 rounded-xl border border-border-dark bg-surface-dark p-6">
+            <div class="flex items-center justify-between">
+                <span class="material-symbols-outlined text-primary">psychology</span>
+                <span class="text-xs font-bold text-green-500">Stable</span>
+            </div>
+            <p class="text-sm font-medium text-[#9dabb9]">AI Accuracy</p>
+            <h3 class="text-2xl font-bold text-white">94.8%</h3>
+        </div>
+
+        <div class="flex flex-col gap-2 rounded-xl border border-border-dark bg-surface-dark p-6">
+            <div class="flex items-center justify-between">
+                <span class="material-symbols-outlined text-primary">warning</span>
+                <span class="text-xs font-bold text-red-500">High</span>
+            </div>
+            <p class="text-sm font-medium text-[#9dabb9]">Critical Alerts</p>
+            <h3 class="text-2xl font-bold text-white">05</h3>
+        </div>
+    </div>
+
+    <div class="rounded-xl border border-border-dark bg-surface-dark overflow-hidden">
+        <div class="p-6 border-b border-border-dark flex justify-between items-center">
+            <h3 class="text-lg font-bold text-white">Recent Symptom Assessments</h3>
+            <button class="text-sm text-primary font-bold hover:underline">View All Reports</button>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead class="bg-[#151a21] text-[#9dabb9] text-xs uppercase">
+                    <tr>
+                        <th class="px-6 py-4">Patient ID</th>
+                        <th class="px-6 py-4">Symptoms Snippet</th>
+                        <th class="px-6 py-4">AI Recommendation</th>
+                        <th class="px-6 py-4">Severity</th>
+                        <th class="px-6 py-4">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-border-dark text-sm">
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="px-6 py-4 font-medium text-white">#PAT-8802</td>
+                        <td class="px-6 py-4 text-[#9dabb9]">Persistent cough, fatigue...</td>
+                        <td class="px-6 py-4 text-[#9dabb9]">CBC, Chest X-Ray</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-500 text-[10px] font-bold uppercase">Moderate</span>
+                        </td>
+                        <td class="px-6 py-4 text-green-500">Completed</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="px-6 py-4 font-medium text-white">#PAT-8805</td>
+                        <td class="px-6 py-4 text-[#9dabb9]">Dizziness, Blurred vision...</td>
+                        <td class="px-6 py-4 text-[#9dabb9]">Blood Glucose, MRI</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 rounded-full bg-red-500/10 text-red-500 text-[10px] font-bold uppercase">High</span>
+                        </td>
+                        <td class="px-6 py-4 text-primary">Analyzing</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
