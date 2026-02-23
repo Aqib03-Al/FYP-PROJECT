@@ -69,22 +69,25 @@
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (User.IsInRole("Admin"))
+                        @if (User.IsInRole("Admin"))
                         {
-                            <a asp-controller="Admin" asp-action="Index" class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
-                                <span class="truncate">Admin Dashboard</span>
+                            <a asp-controller="Admin" asp-action="Index"
+                               class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
+                                <span class="truncate">Admin Panel</span>
                             </a>
                         }
-                        else
+                        else if (User.IsInRole("Patient"))
                         {
-                            <a asp-controller="Assessment" asp-action="Start" class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
-                                <span class="truncate">Start Assessment</span>
+                            <a asp-controller="Patient" asp-action="Index"
+                               class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
+                                <span class="truncate">My Dashboard</span>
                             </a>
                         }
                     }
                     else
                     {
-                        <a asp-area="Identity" asp-page="/Account/Login" class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
+                        <a asp-area="Identity" asp-page="/Account/Login"
+                           class="flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary/90">
                             <span class="truncate">Start Assessment</span>
                         </a>
                     }

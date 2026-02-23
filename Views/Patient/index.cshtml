@@ -2,72 +2,116 @@
     ViewData["Title"] = "Patient Dashboard";
 }
 
-<div class="w-full max-w-[960px] px-4 py-12">
-    <div class="flex flex-col gap-4 mb-10">
-        <h1 class="text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">
-            Hello, @User.Identity.Name! 👋
-        </h1>
-        <p class="text-[#9dabb9] text-lg">
-            Track your health status and view your recommended lab tests here.
-        </p>
-    </div>
-
-    <div class="relative overflow-hidden rounded-2xl bg-primary/10 border border-primary/20 p-8 mb-10">
-        <div class="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div class="max-w-[500px]">
-                <h2 class="text-xl font-bold text-white mb-2">Feeling unwell?</h2>
-                <p class="text-sm text-gray-300">
-                    Start a new symptom assessment now. Our AI will analyze your inputs and suggest the necessary medical tests.
-                </p>
-            </div>
-            <a asp-controller="Assessment" asp-action="Start" class="flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-bold text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20">
+<div class="w-full max-w-[1000px] px-4 py-10 mx-auto">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+        <div>
+            <h1 class="text-3xl font-black text-white tracking-tight">Welcome, @User.Identity?.Name! 👋</h1>
+            <p class="text-[#9dabb9] mt-1">Check your health status and previous recommendations.</p>
+        </div>
+        <div class="flex gap-3">
+            <a asp-controller="Assessment" asp-action="Start" class="flex h-12 items-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-white transition-all hover:scale-105 shadow-lg shadow-primary/20">
                 <span class="material-symbols-outlined">add_circle</span>
                 New Assessment
             </a>
         </div>
-        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
     </div>
 
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 mb-10">
-        <div class="rounded-xl border border-border-dark bg-surface-dark p-6">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="material-symbols-outlined text-primary">history</span>
-                <p class="text-sm font-medium text-[#9dabb9]">Total Assessments</p>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 mb-10">
+        <div class="bg-surface-dark border border-border-dark p-6 rounded-2xl">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                    <span class="material-symbols-outlined">analytics</span>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-[#9dabb9] uppercase">Total Checks</p>
+                    <h3 class="text-2xl font-black text-white">12</h3>
+                </div>
             </div>
-            <h3 class="text-2xl font-bold text-white">03</h3>
         </div>
-        <div class="rounded-xl border border-border-dark bg-surface-dark p-6">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="material-symbols-outlined text-green-500">check_circle</span>
-                <p class="text-sm font-medium text-[#9dabb9]">Last Recommendation</p>
+        <div class="bg-surface-dark border border-border-dark p-6 rounded-2xl">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-green-500/10 rounded-lg text-green-500">
+                    <span class="material-symbols-outlined">medical_information</span>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-[#9dabb9] uppercase">Recent Test</p>
+                    <h3 class="text-xl font-black text-white">Full Blood Count</h3>
+                </div>
             </div>
-            <h3 class="text-2xl font-bold text-white">Vitamin D Panel</h3>
+        </div>
+        <div class="bg-surface-dark border border-border-dark p-6 rounded-2xl">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-orange-500/10 rounded-lg text-orange-500">
+                    <span class="material-symbols-outlined">notifications_active</span>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-[#9dabb9] uppercase">AI Alerts</p>
+                    <h3 class="text-2xl font-black text-white">None</h3>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="flex flex-col gap-4">
-        <h3 class="text-lg font-bold text-white px-1">Recent Recommendations</h3>
-        <div class="rounded-xl border border-border-dark bg-surface-dark overflow-hidden">
-            <div class="p-6 border-b border-border-dark flex justify-between items-center">
-                <p class="text-sm text-[#9dabb9]">Your last 3 assessments</p>
-                <a asp-action="History" class="text-xs text-primary font-bold hover:underline uppercase">View All</a>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <h3 class="text-lg font-bold text-white">Recent Assessments</h3>
+                <a href="#" class="text-xs font-bold text-primary hover:underline">View All</a>
+            </div>
+            <div class="bg-surface-dark border border-border-dark rounded-2xl overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-[#151a21] border-b border-border-dark text-[#9dabb9] text-[10px] uppercase tracking-widest">
+                        <tr>
+                            <th class="px-6 py-4">Date</th>
+                            <th class="px-6 py-4">Main Symptom</th>
+                            <th class="px-6 py-4">Status</th>
+                            <th class="px-6 py-4 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border-dark">
+                        <tr class="hover:bg-white/5 transition-colors group">
+                            <td class="px-6 py-4 text-sm text-white font-medium">Feb 22, 2026</td>
+                            <td class="px-6 py-4 text-sm text-[#9dabb9]">Fever & Chills</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold">Recommended</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors group">
+                            <td class="px-6 py-4 text-sm text-white font-medium">Feb 15, 2026</td>
+                            <td class="px-6 py-4 text-sm text-[#9dabb9]">Dry Cough</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-bold">Consulted</span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+            <h3 class="text-lg font-bold text-white px-2">Health Insights</h3>
+            <div class="bg-gradient-to-br from-primary/20 to-surface-dark border border-primary/20 p-6 rounded-2xl">
+                <span class="material-symbols-outlined text-primary mb-3">lightbulb</span>
+                <h4 class="text-white font-bold mb-2">Did you know?</h4>
+                <p class="text-sm text-[#9dabb9] leading-relaxed">
+                    AI-driven health checks can reduce diagnostic delay by up to 40% when symptoms are reported accurately.
+                </p>
             </div>
 
-            <div class="divide-y divide-border-dark">
-                <div class="flex items-center justify-between p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex flex-col gap-1">
-                        <p class="text-sm font-bold text-white">Blood Sugar & HbA1c</p>
-                        <p class="text-xs text-[#9dabb9]">Recommended on Feb 20, 2026</p>
-                    </div>
-                    <span class="material-symbols-outlined text-[#9dabb9]">chevron_right</span>
-                </div>
-                <div class="flex items-center justify-between p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex flex-col gap-1">
-                        <p class="text-sm font-bold text-white">Complete Blood Count (CBC)</p>
-                        <p class="text-xs text-[#9dabb9]">Recommended on Feb 15, 2026</p>
-                    </div>
-                    <span class="material-symbols-outlined text-[#9dabb9]">chevron_right</span>
-                </div>
+            <div class="bg-surface-dark border border-border-dark p-6 rounded-2xl border-l-4 border-l-red-500">
+                <h4 class="text-white font-bold mb-1">Emergency?</h4>
+                <p class="text-xs text-[#9dabb9] mb-4">If you are experiencing chest pain or severe breathing issues, call emergency services immediately.</p>
+                <button class="w-full py-2 bg-red-500/10 text-red-500 text-xs font-bold rounded-lg border border-red-500/20">Call Helpline</button>
             </div>
         </div>
     </div>
