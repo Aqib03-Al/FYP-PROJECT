@@ -18,11 +18,15 @@ namespace AIHealthTestSystem.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("Admin"))
+                {
                     return RedirectToAction("Index", "Admin");
-                else
+                }
+                else if (User.IsInRole("Patient"))
+                {
                     return RedirectToAction("Index", "Patient");
+                }
             }
-            return View(); // Otherwise show Landing Page
+            return View(); // Agar authenticated nahi hai to Landing Page dikhao
         }
 
         public IActionResult Privacy()

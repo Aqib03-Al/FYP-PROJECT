@@ -1,12 +1,27 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-[Authorize(Roles = "Patient")]
-public class PatientController : Controller
+namespace AIHealthTestSystem.Controllers
 {
-    public IActionResult Index()
+    [Authorize(Roles = "Patient")] // Sirf Patient access kar sakay
+    public class PatientController : Controller
     {
-        // Patient Dashboard Logic
-        return View();
+        public IActionResult Index()
+        {
+            // Patient Dashboard
+            return View();
+        }
+
+        public IActionResult History()
+        {
+            // Past Assessments
+            return View();
+        }
+
+        public IActionResult Profile()
+        {
+            // Patient Profile settings
+            return View();
+        }
     }
 }
