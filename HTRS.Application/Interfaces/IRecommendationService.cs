@@ -8,5 +8,6 @@ namespace HTRS.Application.Interfaces
         Task<IEnumerable<TestRecommendation>> GetRecommendationsAsync(int sessionId);
         Task ProcessRecommendationsAsync(int sessionId, string symptomsJson);
         Task<IEnumerable<SymptomSession>> GetPatientSessionsAsync(int patientProfileId);
+        Task<SymptomSession> GetSessionByIdAsync(int sessionId);
     }
 }

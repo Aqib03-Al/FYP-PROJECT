@@ -36,6 +36,11 @@ namespace HTRS.Application.Services
             return session;
         }
 
+        public async Task<SymptomSession> GetSessionByIdAsync(int sessionId)
+        {
+            return await _sessionRepository.GetByIdAsync(sessionId);
+        }
+
         public async Task<IEnumerable<TestRecommendation>> GetRecommendationsAsync(int sessionId)
         {
             var recommendations = await _recommendationRepository.GetAllAsync();

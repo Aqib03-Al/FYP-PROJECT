@@ -1,0 +1,80 @@
+﻿@model IEnumerable<HTRS.Domain.Entities.TestRecommendation>
+
+@{
+    ViewData["Title"] = "Test Recommendations";
+    var session = ViewBag.Session as HTRS.Domain.Entities.SymptomSession;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Your Test Recommendations</h3>
+            <hr />
+        </div>
+    </div>
+
+    <!-- ✅ Severity Badge -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="alert
+                @(session.SeverityLevel == HTRS.Domain.Enums.SeverityLevel.Mild ? "alert-success" :
+                                   session.SeverityLevel == HTRS.Domain.Enums.SeverityLevel.Moderate ? "alert-warning" :
+                                   "alert-danger")">
+                <h5>
+                    Severity Level: <strong>@session.SeverityLevel</strong>
+                </h5>
+                <p class="mb-0">
+                    @if (session.SeverityLevel == HTRS.Domain.Enums.SeverityLevel.Mild)
+                    {
+                        <span>Your symptoms appear mild. Monitor your condition.</span>
+                    }
+                    else if (session.SeverityLevel == HTRS.Domain.Enums.SeverityLevel.Moderate)
+                    {
+                        <span>Your symptoms are moderate. Please consult a doctor soon.</span>
+                    }
+                    else
+                    {
+                        <span>Your symptoms are severe. Please seek medical attention immediately.</span>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Recommended Tests -->
+    <div class="row">
+        @foreach (var rec in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            🔬 @rec.MedicalTest?.TestName
+                        </h5>
+                        <span class="badge bg-info">
+                            @rec.MedicalTest?.Category
+                        </span>
+                        <p class="mt-2 text-muted small">
+                            @rec.MedicalTest?.Purpose
+                        </p>
+                        <hr />
+                        <p class="small">
+                            <strong>Why this test?</strong><br />
+                            @rec.Reason
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <a asp-action="Index" class="btn btn-primary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+
