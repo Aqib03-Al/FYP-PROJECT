@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HTRS.Domain.Entities.Symptom>
+
+@{
+    ViewData["Title"] = "Select Symptoms";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Select Your Symptoms</h3>
+            <p class="text-muted">Select all symptoms you are experiencing</p>
+            <hr />
+        </div>
+    </div>
+
+    <form method="post" asp-controller="Patient" asp-action="SubmitSymptoms">
+        @Html.AntiForgeryToken()
+        <div class="row">
+            @foreach (var symptom in Model)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm symptom-card"
+                         id="card_@symptom.Id">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input symptom-check"
+                                       type="checkbox"
+                                       name="selectedSymptomIds"
+                                       value="@symptom.Id"
+                                       id="sym_@symptom.Id"
+                                       onchange="toggleSymptomDetail(@symptom.Id)" />
+                                <label class="form-check-label fw-bold"
+                                       for="sym_@symptom.Id">
+                                    @symptom.Name
+                                </label>
+                            </div>
+                            <small class="text-muted">@symptom.BodyPart</small>
+
+                            <!-- Detail inputs — show when checked -->
+                            <div id="detail_@symptom.Id" style="display:none" class="mt-2">
+                                <label class="form-label">Duration (days)</label>
+                                <input type="number"
+                                       name="durations_@symptom.Id"
+                                       class="form-control form-control-sm mb-2"
+                                       min="1" />
+                                <label class="form-label">Intensity (1-10)</label>
+                                <input type="range"
+                                       name="intensities_@symptom.Id"
+                                       class="form-range"
+                                       min="1" max="10" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    Get Recommendations →
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function toggleSymptomDetail(id) {
+            var detail = document.getElementById('detail_' + id);
+            var checkbox = document.getElementById('sym_' + id);
+            detail.style.display = checkbox.checked ? 'block' : 'none';
+        }
+    </script>
+}

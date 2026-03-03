@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HTRS.Domain.Entities.Symptom>
+
+@{
+    ViewData["Title"] = "Manage Symptoms";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Manage Symptoms</h3>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="AddSymptom" class="btn btn-primary">+ Add Symptom</a>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Body Part</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var symptom in Model)
+            {
+                <tr>
+                    <td>@symptom.Name</td>
+                    <td>@symptom.BodyPart</td>
+                    <td>@symptom.Description</td>
+                    <td>
+                        <a asp-action="DeleteSymptom"
+                           asp-route-id="@symptom.Id"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Delete this symptom?')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+```
+

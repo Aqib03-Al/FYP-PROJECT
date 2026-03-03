@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Add Medical Test";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Add New Medical Test</h3>
+                    <form method="post">
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label class="form-label">Test Name</label>
+                            <input type="text" name="TestName" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Category</label>
+                            <input type="text" name="Category"
+                                   class="form-control"
+                                   placeholder="Blood, Urine, Imaging" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea name="Description" class="form-control" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Purpose</label>
+                            <textarea name="Purpose" class="form-control" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Save Test</button>
+                    </form>
+                    <div class="text-center mt-2">
+                        <a asp-action="MedicalTests" class="btn btn-link">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HTRS.Domain.Entities.MedicalTest>
+
+@{
+    ViewData["Title"] = "Manage Medical Tests";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Manage Medical Tests</h3>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="AddMedicalTest" class="btn btn-primary">+ Add Test</a>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Test Name</th>
+                <th>Category</th>
+                <th>Purpose</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var test in Model)
+            {
+                <tr>
+                    <td>@test.TestName</td>
+                    <td>@test.Category</td>
+                    <td>@test.Purpose</td>
+                    <td>
+                        <a asp-action="DeleteMedicalTest"
+                           asp-route-id="@test.Id"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Delete this test?')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+```
+
