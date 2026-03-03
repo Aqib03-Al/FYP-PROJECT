@@ -10,8 +10,4 @@
     <ProjectReference Include="..\HTRS.Domain\HTRS.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

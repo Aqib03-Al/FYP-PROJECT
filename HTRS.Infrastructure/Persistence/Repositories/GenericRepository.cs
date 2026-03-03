@@ -1,4 +1,5 @@
 ﻿using HTRS.Domain.Common;
+using HTRS.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace HTRS.Infrastructure.Persistence.Repositories
@@ -7,7 +8,7 @@ namespace HTRS.Infrastructure.Persistence.Repositories
     {
         private readonly ApplicationDbContext _context;
         private readonly DbSet<T> _dbSet;
-
+        
         public GenericRepository(ApplicationDbContext context)
         {
             _context = context;

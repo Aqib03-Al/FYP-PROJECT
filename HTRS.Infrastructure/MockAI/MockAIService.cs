@@ -1,6 +1,8 @@
-﻿namespace HTRS.Infrastructure.MockAI
+﻿using HTRS.Application.Interfaces;
+
+namespace HTRS.Infrastructure.MockAI
 {
-    public class MockAIService
+    public class MockAIService : IAIService
     {
         public Task<string> GetRecommendationAsync(string symptomsJson)
         {
